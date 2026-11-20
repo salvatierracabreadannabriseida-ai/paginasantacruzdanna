@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Cruz de la Sierra - Portal Interactivo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen selection:bg-verde-cruceño selection:text-white">
+
+    <!-- Barra de Navegación Superior (Verde Bandera y Blanco) -->
+    <header class="glass-nav text-white sticky top-0 z-50 shadow-lg border-b-4 border-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Escudo simbólico -->
+                <a href="#inicio" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bandera-stripe border-2 border-white shadow-md transform group-hover:rotate-6 transition-transform"></div>
+                    <div>
+                        <span class="font-serif font-bold text-xl sm:text-2xl tracking-tight block leading-none">SANTA CRUZ</span>
+                        <span class="text-xs uppercase tracking-widest text-verde-menta font-semibold">Corazón de Sudamérica</span>
+                    </div>
+                </a>
+
+                <!-- Menú de Escritorio -->
+                <nav class="hidden md:flex space-x-2">
+                    <a href="#historia" class="px-4 py-2.5 rounded-xl font-semibold text-sm bg-white/10 hover:bg-white hover:text-verde-cruceño transition-all duration-200 flex items-center gap-2">
+                        <i class="fas fa-landmark"></i> Reseña Histórica
+                    </a>
+                    <a href="#tipicas" class="px-4 py-2.5 rounded-xl font-semibold text-sm bg-white/10 hover:bg-white hover:text-verde-cruceño transition-all duration-200 flex items-center gap-2">
+                        <i class="fas fa-utensils"></i> Reseñas Típicas
+                    </a>
+                    <a href="#curiosidades" class="px-4 py-2.5 rounded-xl font-semibold text-sm bg-white text-verde-cruceño hover:bg-verde-claro shadow-sm transition-all duration-200 flex items-center gap-2">
+                        <i class="fas fa-sparkles"></i> Curiosidades
+                    </a>
+                </nav>
+
+                <!-- Botón Menú Móvil -->
+                <button id="mobile-menu-btn" aria-label="Abrir menú" class="md:hidden p-3 rounded-xl bg-white/10 hover:bg-white/20 text-white focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-verde-oscuro border-t border-white/20 px-4 pt-3 pb-5 space-y-2">
+            <a href="#historia" class="mobile-link block px-4 py-3 rounded-xl font-semibold text-white hover:bg-white hover:text-verde-cruceño transition">
+                <i class="fas fa-landmark mr-2"></i> Reseña Histórica
+            </a>
+            <a href="#tipicas" class="mobile-link block px-4 py-3 rounded-xl font-semibold text-white hover:bg-white hover:text-verde-cruceño transition">
+                <i class="fas fa-utensils mr-2"></i> Reseñas Típicas
+            </a>
+            <a href="#curiosidades" class="mobile-link block px-4 py-3 rounded-xl font-semibold bg-white text-verde-cruceño transition">
+                <i class="fas fa-sparkles mr-2"></i> Curiosidades
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Banner Principal -->
+    <section id="inicio" class="relative bg-verde-cruceño text-white overflow-hidden">
+        <!-- Franja decorativa blanca -->
+        <div class="absolute inset-0 opacity-15">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1600&q=80" 
+                 onerror="this.src='https://tse3.mm.bing.net/th/id/OIP.FsbN4DKvo5S1Ob6AGido_gHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3'" 
+                 alt="Paisaje tropical de Santa Cruz" 
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-white text-verde-cruceño font-bold text-xs sm:text-sm uppercase tracking-wider mb-6 shadow-md">
+                ¡Siempre Libres, Cruceños Seamos!
+            </span>
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                Descubre la Magia de <br class="hidden sm:inline"> <span class="underline decoration-white/60 decoration-4 underline-offset-8">Santa Cruz de la Sierra</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-verde-claro mb-10 font-light">
+                Explora nuestra historia, saborea nuestras tradiciones típicas y descubre las curiosidades más emblemáticas de la tierra camba de forma interactiva.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#historia" class="px-7 py-3.5 rounded-2xl bg-white text-verde-cruceño font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                    Comenzar Recorrido
+                </a>
+                <a href="#curiosidades" class="px-7 py-3.5 rounded-2xl bg-verde-oscuro border-2 border-white text-white font-bold hover:bg-white hover:text-verde-cruceño transition-all">
+                    Ver Curiosidades
+                </a>
+            </div>
+        </div>
+        <!-- Separador visual bandera -->
+        <div class="h-4 w-full bg-white"></div>
+        <div class="h-4 w-full bg-verde-cruceño"></div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20">
+
+        <!-- SECCIÓN 1: RESEÑA HISTÓRICA DE SANTA CRUZ (Con imagen de Santa Cruz) -->
+        <section id="historia" class="scroll-mt-24 bg-white rounded-3xl shadow-xl border-2 border-verde-cruceño/20 overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- Columna de Imagen de Santa Cruz -->
+                <div class="lg:col-span-6 relative min-h-[320px] sm:min-h-[420px] bg-verde-claro">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.FsbN4DKvo5S1Ob6AGido_gHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" 
+                         onerror="this.src='https://placehold.co/800x600/007A33/FFFFFF?text=Catedral+Metropolitana+Santa+Cruz'" 
+                         alt="Arquitectura y Plaza 24 de Septiembre de Santa Cruz" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-verde-oscuro/90 via-verde-oscuro/50 to-transparent p-6 text-white">
+                        <span class="px-3 py-1 bg-white text-verde-cruceño text-xs font-bold rounded-full uppercase">Patrimonio Histórico</span>
+                        <p class="mt-2 font-serif text-lg font-bold">Plaza 24 de Septiembre y Casco Viejo</p>
+                    </div>
+                </div>
+
+                <!-- Columna de Texto Interactivo -->
+                <div class="lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 text-verde-cruceño font-bold text-sm uppercase tracking-wider mb-2">
+                            <span class="w-8 h-1 bg-verde-cruceño rounded-full"></span>
+                            <span>Sección 01</span>
+                        </div>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-verde-cruceño mb-6">
+                            Reseña Histórica de Santa Cruz
+                        </h2>
+
+                        <!-- Pestañas Interactivas de Historia -->
+                        <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-3" role="tablist">
+                            <button onclick="cambiarTabHistoria('fundacion', this)" class="tab-hist-btn px-4 py-2 rounded-xl text-sm font-bold bg-verde-cruceño text-white transition">
+                                1561: Fundación
+                            </button>
+                            <button onclick="cambiarTabHistoria('independencia', this)" class="tab-hist-btn px-4 py-2 rounded-xl text-sm font-bold bg-verde-claro text-verde-cruceño hover:bg-verde-cruceño/20 transition">
+                                1810: Gesta Libertaria
+                            </button>
+                            <button onclick="cambiarTabHistoria('modernidad', this)" class="tab-hist-btn px-4 py-2 rounded-xl text-sm font-bold bg-verde-claro text-verde-cruceño hover:bg-verde-cruceño/20 transition">
+                                Hoy: Metrópoli
+                            </button>
+                        </div>
+
+                        <!-- Contenido Dinámico de la Historia -->
+                        <div id="contenido-historia" class="space-y-4 text-slate-600 leading-relaxed min-h-[180px]">
+                            <p class="font-semibold text-verde-oscuro text-lg">El nacimiento junto al arroyo Sutó</p>
+                            <p>
+                                Santa Cruz de la Sierra fue fundada el <strong>26 de febrero de 1561</strong> por el capitán español <strong>Ñuflo de Chaves</strong>, tras una expedición proveniente del Paraguay. La bautizó así en honor a su tierra natal en Extremadura, España.
+                            </p>
+                            <p>
+                                Debido a constantes conflictos y buscando tierras más fértiles, la ciudad realizó tres traslados históricos hasta asentarse definitivamente a orillas del río Piraí, conservando su espíritu hospitalario y luchador.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span><i class="fas fa-calendar-alt text-verde-cruceño mr-1"></i> Más de 460 años de historia</span>
+                        <span class="font-semibold text-verde-cruceño">Haz clic en las etapas arriba</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: RESEÑAS TÍPICAS DE SANTA CRUZ (Cada plato/tradición tiene foto) -->
+        <section id="tipicas" class="scroll-mt-24">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-block px-4 py-1 rounded-full bg-verde-claro text-verde-cruceño font-bold text-xs uppercase tracking-wider mb-3">
+                    Sección 02 • Sabores y Cultura
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-verde-cruceño mb-4">
+                    Reseñas Típicas de Santa Cruz
+                </h2>
+                <p class="text-slate-600">
+                    La identidad cruceña se expresa con orgullo en su gastronomía tradicional, su música alegre y sus costumbres del oriente boliviano. Selecciona cada tarjeta para conocer más detalles.
+                </p>
+            </div>
+
+            <!-- Tarjetas de Reseñas Típicas con Fotografía -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1: Majadito -->
+                <article class="bg-white rounded-3xl shadow-lg border-2 border-verde-cruceño/15 overflow-hidden hover:border-verde-cruceño transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden bg-verde-claro">
+                        <img src="https://th.bing.com/th/id/OIP.x9lgU_Y5n9xL0ycRP8OL9AHaJ4?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" 
+                             onerror="this.src='https://placehold.co/600x400/007A33/FFFFFF?text=Majadito+Cruce%C3%B1o'" 
+                             alt="Majadito tradicional cruceño" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-verde-cruceño text-white text-xs font-bold shadow">
+                            Gastronomía
+                        </span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-verde-cruceño mb-2">El Majadito</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Plato bandera de la cocina camba. Preparado con arroz graneado o batido, charque (carne deshidratada) desmenuzado, urucú que le da su color característico, acompañado de huevo frito y plátano maduro frito.
+                            </p>
+                        </div>
+                        <button onclick="mostrarDetalleTipico('Majadito Cruceño', 'Su nombre proviene del verbo majar (golpear en tacú). Es el almuerzo por excelencia en las familias cruceñas, ideal para acompañar con un refresco de achachairú o mocochinchi.')" 
+                                class="w-full py-2.5 px-4 rounded-xl bg-verde-claro text-verde-cruceño font-bold text-sm hover:bg-verde-cruceño hover:text-white transition">
+                            Ver dato típico <i class="fas fa-plus-circle ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card 2: Cuñapé y Sonso -->
+                <article class="bg-white rounded-3xl shadow-lg border-2 border-verde-cruceño/15 overflow-hidden hover:border-verde-cruceño transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden bg-verde-claro">
+                        <img src="https://www.paulinacocina.net/wp-content/uploads/2024/05/receta-de-cunape-Paulina-Cocina-Recetas.jpg" 
+                             onerror="this.src='https://tse2.mm.bing.net/th/id/OIP.0qoPcu9Jb4GP5cVAGNo_5gHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" 
+                             alt="Horneados típicos cruceños y cuñapé" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-verde-cruceño text-white text-xs font-bold shadow">
+                            Horneados
+                        </span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-verde-cruceño mb-2">Cuñapé y Sonso</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Los infaltables del café de la siesta. El cuñapé se elabora con almidón de yuca y abundante queso criollo, mientras que el sonso combina yuca molida con queso asado a la brasa o al horno.
+                            </p>
+                        </div>
+                        <button onclick="mostrarDetalleTipico('Horneados de la Siesta', 'La hora del cafecito en Santa Cruz (alrededor de las 16:00) es una institución social donde se comparte cuñapé, sonso, empanadas de arroz y roscas de maíz.')" 
+                                class="w-full py-2.5 px-4 rounded-xl bg-verde-claro text-verde-cruceño font-bold text-sm hover:bg-verde-cruceño hover:text-white transition">
+                            Ver dato típico <i class="fas fa-plus-circle ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card 3: Danzas y Música (Taquirari y Chovena) -->
+                <article class="bg-white rounded-3xl shadow-lg border-2 border-verde-cruceño/15 overflow-hidden hover:border-verde-cruceño transition-all duration-300 group flex flex-col">
+                    <div class="relative h-56 overflow-hidden bg-verde-claro">
+                        <img src="data:image/webp;base64,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" 
+                             onerror="this.src='https://placehold.co/600x400/007A33/FFFFFF?text=Taquirari+y+Tradici%C3%B3n'" 
+                             alt="Música y alegría cruceña" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-verde-cruceño text-white text-xs font-bold shadow">
+                            Folklore
+                        </span>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-2xl font-bold text-verde-cruceño mb-2">Taquirari y Carnaval</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                El ritmo alegre del Taquirari y la Chovena animan todas las fiestas cruceñas, acompañados por la tamborita tradicional, el tipoy colorido de la mujer cruceña y el sombrero de saó.
+                            </p>
+                        </div>
+                        <button onclick="mostrarDetalleTipico('La Tamborita y el Tipoy', 'La tamborita (compuesta por flauta, caja y bombo) marca el pulso de las fiestas patronales y del Carnaval Cruceño, declarado Patrimonio Cultural.')" 
+                                class="w-full py-2.5 px-4 rounded-xl bg-verde-claro text-verde-cruceño font-bold text-sm hover:bg-verde-cruceño hover:text-white transition">
+                            Ver dato típico <i class="fas fa-plus-circle ml-1"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Caja de mensaje interactivo para reseñas típicas -->
+            <div id="caja-detalle-tipico" class="hidden mt-8 p-6 rounded-2xl bg-verde-cruceño text-white shadow-xl animate-card flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-white text-verde-cruceño flex items-center justify-center shrink-0 text-xl font-bold">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div>
+                        <h4 id="titulo-detalle-tipico" class="font-serif text-xl font-bold"></h4>
+                        <p id="texto-detalle-tipico" class="text-verde-claro text-sm mt-1"></p>
+                    </div>
+                </div>
+                <button onclick="document.getElementById('caja-detalle-tipico').classList.add('hidden')" class="px-4 py-2 rounded-xl bg-white text-verde-cruceño font-bold text-xs uppercase shrink-0 hover:bg-verde-claro">
+                    Cerrar
+                </button>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: CURIOSIDADES (Con botón que despliega lista con foto de cada elemento) -->
+        <section id="curiosidades" class="scroll-mt-24 bg-white rounded-3xl shadow-xl border-2 border-verde-cruceño p-8 sm:p-12">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b-2 border-verde-claro">
+                <div>
+                    <span class="inline-block px-3 py-1 rounded-full bg-verde-cruceño text-white font-bold text-xs uppercase tracking-wider mb-2">
+                        Sección 03 • Interactivo
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-verde-cruceño">
+                        Curiosidades de Santa Cruz
+                    </h2>
+                    <p class="text-slate-600 mt-2">
+                        Haz clic en el botón para desplegar la lista interactiva con los 5 símbolos más representativos de nuestra tierra.
+                    </p>
+                </div>
+
+                <!-- BOTÓN PRINCIPAL SOLICITADO -->
+                <button id="btn-curiosidades" onclick="toggleCuriosidades()" 
+                        class="px-8 py-4 rounded-2xl bg-verde-cruceño hover:bg-verde-oscuro text-white font-bold text-base sm:text-lg shadow-lg hover:shadow-verde-cruceño/40 transition-all duration-300 flex items-center gap-3 shrink-0 transform active:scale-95">
+                    <i id="icono-btn-curiosidades" class="fas fa-list-ul text-xl"></i>
+                    <span id="texto-btn-curiosidades">Mostrar Lista de Curiosidades</span>
+                </button>
+            </div>
+
+            <!-- LISTA INTERACTIVA DESPLEGABLE (Con foto para cada ítem) -->
+            <div id="lista-curiosidades-container" class="hidden mt-8">
+                <div class="mb-6 flex items-center justify-between bg-verde-claro px-5 py-3 rounded-2xl text-verde-oscuro text-sm font-semibold">
+                    <span><i class="fas fa-info-circle mr-2 text-verde-cruceño"></i> Haz clic en cualquier elemento de la lista para ver su curiosidad y fotografía:</span>
+                    <span class="hidden sm:inline font-bold text-verde-cruceño">5 Símbolos Cruceños</span>
+                </div>
+
+                <!-- Lista de los 5 elementos solicitados -->
+                <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8" id="lista-items-curiosidades">
+                    <!-- Item 1: Ciudad de los Anillos -->
+                    <li>
+                        <button onclick="seleccionarCuriosidad(0)" class="curiosidad-item-btn w-full h-full p-4 rounded-2xl border-2 border-verde-cruceño bg-verde-cruceño text-white font-bold text-left shadow-md transition-all flex flex-col justify-between gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-white text-verde-cruceño flex items-center justify-center font-extrabold text-sm">1</span>
+                            <span class="text-base leading-snug">Ciudad de los Anillos</span>
+                            <span class="text-xs opacity-90 font-normal flex items-center gap-1">Ver foto y dato <i class="fas fa-arrow-right"></i></span>
+                        </button>
+                    </li>
+
+                    <!-- Item 2: Fundación -->
+                    <li>
+                        <button onclick="seleccionarCuriosidad(1)" class="curiosidad-item-btn w-full h-full p-4 rounded-2xl border-2 border-verde-cruceño/30 bg-white text-verde-cruceño hover:border-verde-cruceño font-bold text-left transition-all flex flex-col justify-between gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-verde-claro text-verde-cruceño flex items-center justify-center font-extrabold text-sm">2</span>
+                            <span class="text-base leading-snug">Fundación</span>
+                            <span class="text-xs text-slate-500 font-normal flex items-center gap-1">Ver foto y dato <i class="fas fa-arrow-right"></i></span>
+                        </button>
+                    </li>
+
+                    <!-- Item 3: Bandera -->
+                    <li>
+                        <button onclick="seleccionarCuriosidad(2)" class="curiosidad-item-btn w-full h-full p-4 rounded-2xl border-2 border-verde-cruceño/30 bg-white text-verde-cruceño hover:border-verde-cruceño font-bold text-left transition-all flex flex-col justify-between gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-verde-claro text-verde-cruceño flex items-center justify-center font-extrabold text-sm">3</span>
+                            <span class="text-base leading-snug">Bandera</span>
+                            <span class="text-xs text-slate-500 font-normal flex items-center gap-1">Ver foto y dato <i class="fas fa-arrow-right"></i></span>
+                        </button>
+                    </li>
+
+                    <!-- Item 4: Cruceña -->
+                    <li>
+                        <button onclick="seleccionarCuriosidad(3)" class="curiosidad-item-btn w-full h-full p-4 rounded-2xl border-2 border-verde-cruceño/30 bg-white text-verde-cruceño hover:border-verde-cruceño font-bold text-left transition-all flex flex-col justify-between gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-verde-claro text-verde-cruceño flex items-center justify-center font-extrabold text-sm">4</span>
+                            <span class="text-base leading-snug">Cruceña</span>
+                            <span class="text-xs text-slate-500 font-normal flex items-center gap-1">Ver foto y dato <i class="fas fa-arrow-right"></i></span>
+                        </button>
+                    </li>
+
+                    <!-- Item 5: El Tajibo -->
+                    <li>
+                        <button onclick="seleccionarCuriosidad(4)" class="curiosidad-item-btn w-full h-full p-4 rounded-2xl border-2 border-verde-cruceño/30 bg-white text-verde-cruceño hover:border-verde-cruceño font-bold text-left transition-all flex flex-col justify-between gap-3">
+                            <span class="w-8 h-8 rounded-lg bg-verde-claro text-verde-cruceño flex items-center justify-center font-extrabold text-sm">5</span>
+                            <span class="text-base leading-snug">El Tajibo</span>
+                            <span class="text-xs text-slate-500 font-normal flex items-center gap-1">Ver foto y dato <i class="fas fa-arrow-right"></i></span>
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Visor Detallado con Fotografía del Elemento Seleccionado -->
+                <div id="visor-curiosidad" class="bg-verde-claro/60 rounded-3xl p-6 sm:p-8 border-2 border-verde-cruceño/30 grid grid-cols-1 md:grid-cols-12 gap-8 items-center animate-card">
+                    <div class="md:col-span-5">
+                        <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-white aspect-[4/3] bg-white">
+                            <img id="curiosidad-img" src="" alt="Imagen de curiosidad cruceña" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 space-y-4">
+                        <span id="curiosidad-badge" class="inline-block px-3 py-1 rounded-full bg-verde-cruceño text-white text-xs font-bold uppercase">
+                            Curiosidad #1
+                        </span>
+                        <h3 id="curiosidad-titulo" class="font-serif text-2xl sm:text-3xl font-bold text-verde-cruceño">
+                            Ciudad de los Anillos
+                        </h3>
+                        <p id="curiosidad-descripcion" class="text-slate-700 leading-relaxed text-base">
+                            <!-- Se rellena dinámicamente -->
+                        </p>
+                        <div class="p-4 rounded-xl bg-white border-l-4 border-verde-cruceño text-sm text-slate-600 shadow-sm">
+                            <strong class="text-verde-cruceño"><i class="fas fa-lightbulb mr-1"></i> ¿Sabías que...?</strong>
+                            <span id="curiosidad-dato-extra"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA (Sin fotos, con nombre completo solicitado) -->
+    <footer class="bg-verde-cruceño text-white border-t-8 border-white mt-auto">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+                <div>
+                    <p class="font-serif text-xl font-bold tracking-wide">SANTA CRUZ DE LA SIERRA</p>
+                    <p class="text-verde-menta text-sm mt-1">Orgullo, tradición y hospitalidad del oriente boliviano.</p>
+                </div>
+
+                <!-- Nombre completo requerido en el pie de página -->
+                <div class="bg-white text-verde-cruceño px-6 py-4 rounded-2xl shadow-lg border-2 border-verde-menta">
+                    <p class="text-xs uppercase tracking-widest font-bold text-verde-oscuro">Desarrollado y presentado por:</p>
+                    <p class="font-serif text-lg sm:text-xl font-extrabold mt-0.5">
+                        Danna Briseida Salvatierra Cabrera
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/20 text-center text-xs text-verde-claro">
+                &copy; 2026 Portal Interactivo de Santa Cruz • Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lógica Interactiva en JavaScript -->
+    
+</body>
+</html>

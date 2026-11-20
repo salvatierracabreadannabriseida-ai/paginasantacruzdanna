@@ -1,0 +1,16 @@
+/* Animaciones suaves para transiciones interactivas */
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: translateY(15px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-card {
+            animation: fadeInScale 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .glass-nav {
+            background: rgba(0, 122, 51, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        /* Patrón sutil inspirado en la bandera cruceña (Verde - Blanco - Verde) */
+        .bandera-stripe {
+            background: linear-gradient(180deg, #007A33 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #007A33 66.66%);
+        }
